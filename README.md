@@ -98,6 +98,19 @@ sha256sum -c SHA256SUMS --ignore-missing
 
 On macOS and Linux, "OK" after your file's name means it matches. "FAILED" means it does not: do not install it. Download it again, and tell us if it still fails.
 
+### Check the signature as well (recommended)
+
+A checksum file only proves the download matches *that file*. To be sure `SHA256SUMS` itself is ours and was not swapped on this website, check its signature. Download `SHA256SUMS` **and** `SHA256SUMS.minisig` into the same folder as your download, and get our public key file `iris-release.pub` from the same place as this page's other files (the key's ID is on the first line of that file. It is also written in every release's notes and on the maintainer's GitHub profile page, https://github.com/p0l4ris06, which is kept outside this repository so that one stolen credential cannot change all of them. If any of them differ, stop).
+
+Install [minisign](https://jedisct1.github.io/minisign/) (one small program), then run our script `verify_release` in that folder (`verify_release.sh` on macOS and Linux, `verify_release.ps1` on Windows). It checks the signature, then every download against `SHA256SUMS`, and prints `verified` only if all of that passes. By hand:
+
+```sh
+minisign -Vm SHA256SUMS -p iris-release.pub
+sha256sum -c SHA256SUMS --ignore-missing
+```
+
+Each release also lists, in its Assets, five software bills of materials in CycloneDX format: `iris-desktop-npm.cdx.json` and `iris-hud-npm.cdx.json` (the JavaScript packages, Electron included), and `iris-python-windows-x86_64.cdx.json`, `iris-python-macos-arm64.cdx.json` and `iris-python-linux-x86_64.cdx.json` (the Python packages bundled with each platform's engine). The Python interpreter itself is not listed in them.
+
 ## Updates
 
 IRIS does not update itself. To see whether there is a newer version, choose **Help → Check for updates…** (with the keyboard: Alt+H on Windows and Linux, then the underlined letter). If there is one, download it from this page and install it over the old one. Your memory is kept.

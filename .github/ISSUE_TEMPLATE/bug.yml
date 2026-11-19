@@ -1,0 +1,30 @@
+name: Bug
+description: Something in IRIS does not work as it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. **Do not attach your memory database (`iris.db`) or any file from your IRIS data folder.** It contains your private notes. Describe what happened instead.
+  - type: input
+    id: version
+    attributes:
+      label: IRIS version and system
+      description: In IRIS choose Help > About IRIS > Copy these details, then paste here.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to repeat it
+      placeholder: "1. ...\n2. ...\n3. ..."
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else (error messages, screenshots without private content)

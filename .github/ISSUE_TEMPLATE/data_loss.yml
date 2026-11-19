@@ -1,0 +1,37 @@
+name: Data loss or memory problem
+description: Notes, results or a whole memory went missing, changed, or would not open after an upgrade, import or restore
+labels: [data-loss, priority]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Stop using IRIS for now and do not delete anything.** Your backups are in `%APPDATA%\IRIS\backups` (Windows) and are not deleted automatically before an upgrade.
+
+        # Do not attach your database
+        **Do not attach `iris.db`, a backup, or any file from your IRIS data folder to this issue.** They contain your private notes and an issue is public. Tell us what you see; if we need to look at a file we will ask for a safe way to do it.
+  - type: input
+    id: version
+    attributes:
+      label: IRIS version(s) involved and system
+      description: The version you upgraded from and to, if any. Help > About IRIS > Copy these details.
+    validations:
+      required: true
+  - type: dropdown
+    id: when
+    attributes:
+      label: When did it happen?
+      options: [After an upgrade, After an import, After a restore, During normal use, I am not sure]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is missing or different?
+      description: Roughly how much (a few items, everything), and how you noticed.
+    validations:
+      required: true
+  - type: textarea
+    id: backups
+    attributes:
+      label: Do you have backups?
+      description: List the file NAMES in your backups folder (not the files). The names say when and why each was made.

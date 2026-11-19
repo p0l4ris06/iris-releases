@@ -1,0 +1,32 @@
+name: Accessibility problem
+description: IRIS is hard or impossible to use with your keyboard, screen reader, zoom, contrast or other settings
+labels: [accessibility]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Accessibility reports are looked at first. **Do not attach your memory database or any file from your IRIS data folder.**
+  - type: input
+    id: version
+    attributes:
+      label: IRIS version and system
+      description: Help > About IRIS > Copy these details.
+    validations:
+      required: true
+  - type: textarea
+    id: tech
+    attributes:
+      label: What do you use?
+      description: Screen reader and version (NVDA, JAWS, Narrator, VoiceOver, Orca...), browser-like zoom level, high-contrast or dark mode, keyboard only, voice control, switch device, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What were you trying to do, and what happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What would have worked for you?

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and help using IRIS
+    url: https://github.com/p0l4ris06/iris-releases/discussions
+    about: For "how do I...?" and general support, please use Discussions. Issues are for bugs, accessibility problems and data loss.
+  - name: Security problem
+    url: https://github.com/p0l4ris06/iris-releases/security/advisories/new
+    about: Report security problems privately here, not as an issue.
